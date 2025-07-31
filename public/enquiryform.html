@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry Form</title>
+  <link rel="stylesheet" href="styles.css" />
+ 
+</head>
+
+
+<body class="enquiry-page">
+  <div class="form-group">
+    <section class="form-section">
+      <!-- Logo and Institute Name -->
+      <div class="logo-container">
+        <h1 class="institute-name"> WELCOME - KPH TRAININGS</h1>
+        <img src="KPH.jpg" alt="KPH Trainings Logo" class="logo" />
+        <h1 class="institute-name">ENQUIRY FORM</h1>
+
+      </div>
+
+      <!-- Form -->
+      <div class="login-box">
+        <form id="enquiryForm">
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <div class="input-container">
+              <input type="text" id="fullName" name="fullName" placeholder=" " required pattern="^[A-Za-z\s]{2,50}$"
+                title="Enter a valid name (only letters and spaces)" />
+              <label for="fullName">FULL NAME</label>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group phone-group">
+            <div class="phone-input-container">
+              <div class="input-container">
+                <select id="countryCode" required>
+                  <option value="+91" selected>India (+91)</option>
+                  <option value="+1">USA (+1)</option>
+                  <option value="+44">UK (+44)</option>
+                </select>
+                <label for="countryCode">Country Code</label>
+              </div>
+              <div class="input-container">
+                <input type="text" id="phone" name="phone" placeholder=" " required pattern="^[6-9]\d{9}$"
+                  title="Enter a valid 10-digit mobile number" maxlength="10" inputmode="numeric" />
+                <label for="phone">Phone Number</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <div class="input-container">
+              <input type="email" id="enquiryEmail" name="email" required pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                title="Please enter a valid email address" />
+              <label for="enquiryEmail">EMAIL ID</label>
+            </div>
+          </div>
+
+          <!-- Date of Birth -->
+          <div class="form-group">
+            <div class="input-container">
+              <input type="date" id="enquiryDob" name="dob" placeholder=" " required max="" />
+              <label for="enquiryDob">DATE OF BIRTH</label>
+            </div>
+          </div>
+
+          <!-- Course -->
+          <div class="form-group">
+            <div class="input-container">
+              <select id="course" name="course" required>
+                <option value="" disabled selected hidden></option>
+                <option value="Python">Python</option>
+                <option value="Power BI">Power BI</option>
+                <option value="Java">Java</option>
+                <option value="Cloud">Cloud</option>
+              </select>
+              <label for="course">COURSE</label>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="form-group">
+            <div class="input-container">
+              <select id="education" name="education" required>
+                <option value="" disabled selected hidden></option>
+                <option value="10th">10th</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Graduation">Graduation</option>
+                <option value="Post Graduation">Post Graduation</option>
+              </select>
+              <label for="education">EDUCATION QUALIFICATION</label>
+            </div>
+          </div>
+
+          <!-- Passed Out Year -->
+          <div class="form-group">
+            <div class="input-container">
+              <input type="text" id="passedOutYear" name="passedOutYear" placeholder=" " required pattern="^\d{4}$"
+                maxlength="4" title="Enter a valid 4-digit year (e.g. 2022)" />
+              <label for="passedOutYear">PASSED OUT YEAR</label>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="button-container">
+            <button type="submit" class="signup-btn">SUBMIT</button>
+          </div>
+
+          <div class="button-container">
+            <button type="button" class="btn-back" onclick="goBack()">← Back</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Set Max DOB -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const dob = document.getElementById("enquiryDob");
+      if (dob) {
+        dob.max = new Date().toISOString().split("T")[0];
+      }
+    });
+  </script>
+
+  <script>
+    function goBack() {
+      window.location.href = 'SelectAForm.html';
+    }
+  </script>
+   <script type="module" src="js/main.js"></script>
+</body>
+
