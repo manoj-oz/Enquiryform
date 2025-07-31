@@ -28,11 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(formData),
         credentials: 'include'
       });
+      
 
       const result = await res.json();
       if (res.ok) {
-        alert('✅ Enquiry submitted!');
-        window.location.href = 'enquiry-dashboard.html';
+        showPopup(); // 👈 Show the popup instead of alert
       } else {
         alert(`❌ Error: ${result.message || 'Submission failed'}`);
       }

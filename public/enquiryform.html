@@ -112,9 +112,9 @@
             <button type="submit" class="signup-btn">SUBMIT</button>
           </div>
 
-          <div class="button-container">
+         <!-- <div class="button-container">
             <button type="button" class="btn-back" onclick="goBack()">← Back</button>
-          </div>
+          </div>-->
 
         </form>
       </div>
@@ -131,11 +131,21 @@
     });
   </script>
 
-  <script>
+ <!--- <script>
     function goBack() {
       window.location.href = 'SelectAForm.html';
-    }
+ } -->
   </script>
    <script type="module" src="js/main.js"></script>
+
+   <!-- Success Popup -->
+<div id="successPopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>🎉 Congratulations!</h2>
+    <p>Enquiry submitted successfully.<br>We will get back to you soon.</p>
+    <button onclick="closePopup()">OK</button>
+  </div>
+</div>
+
 </body>
 
