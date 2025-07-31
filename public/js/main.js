@@ -28,11 +28,14 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(formData),
         credentials: 'include'
       });
-      
+
 
       const result = await res.json();
       if (res.ok) {
         showPopup(); // 👈 Show the popup instead of alert
+        setTimeout(() => {
+          window.location.href = 'enquiryform.html';
+        }, 3000); // Redirect after 3 seconds
       } else {
         alert(`❌ Error: ${result.message || 'Submission failed'}`);
       }
@@ -42,12 +45,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   function showPopup() {
-  document.getElementById('successPopup').style.display = 'flex';
-}
+    document.getElementById('successPopup').style.display = 'flex';
+  }
 
-function closePopup() {
-  document.getElementById('successPopup').style.display = 'none';
-  window.location.href = 'enquiry-dashboard.html';
-}
+  function closePopup() {
+    document.getElementById('successPopup').style.display = 'none';
+    window.location.href = 'enquiry-dashboard.html';
+  }
 
 });
