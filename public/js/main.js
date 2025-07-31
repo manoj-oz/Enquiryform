@@ -41,4 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('❌ Network error.');
     }
   });
+  function showPopup() {
+  document.getElementById('successPopup').style.display = 'flex';
+}
+
+function closePopup() {
+  document.getElementById('successPopup').style.display = 'none';
+  window.location.href = 'enquiry-dashboard.html';
+}
+
 });
