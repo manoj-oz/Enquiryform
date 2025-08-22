@@ -1,12 +1,37 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const pool = require("./db");   // ✅ only once
-
+const { Pool } = require("pg");
 require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// ✅ Choose DB config based on NODE_ENV
+let poolConfig;
+
+if (process.env.NODE_ENV === "azure") {
+  poolConfig = {
+    user: process.env.AZURE_DB_USER,
+    host: process.env.AZURE_DB_HOST,
+    database: process.env.AZURE_DB_NAME,
+    password: process.env.AZURE_DB_PASSWORD,
+    port: process.env.AZURE_DB_PORT,
+    ssl: { rejectUnauthorized: false } // required for Azure PostgreSQL
+  };
+  console.log("🌐 Using Azure PostgreSQL Database");
+} else {
+  poolConfig = {
+    user: process.env.LOCAL_DB_USER,
+    host: process.env.LOCAL_DB_HOST,
+    database: process.env.LOCAL_DB_NAME,
+    password: process.env.LOCAL_DB_PASSWORD,
+    port: process.env.LOCAL_DB_PORT
+  };
+  console.log("💻 Using Local PostgreSQL Database");
+}
+
+const pool = new Pool(poolConfig);
 
 // Middleware
 app.use(cors());
