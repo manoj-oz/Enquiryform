@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const res = await fetch('/api/enquiry', {
+      const res = await fetch('/api/enquiry_form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
