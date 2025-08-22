@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // 📝 Enquiry route
-app.post('/api/enquiry', async (req, res) => {
+app.post(['/api/enquiry', '/api/enquiry_form'], async (req, res) => {
   const { full_name, phone, email, dob, course, education, passed_out_year } = req.body;
 
   try {
