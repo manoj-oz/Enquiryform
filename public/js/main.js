@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await res.json();
       if (res.ok) {
         showPopup(); // 👈 Show the popup instead of alert
-        setTimeout(() => {
+    /*    setTimeout(() => {
           window.location.href = 'enquiryform.html';
-        }, 3000); // Redirect after 3 seconds
+        }, 3000);*/ // Redirect after 3 seconds
       } else {
         alert(`❌ Error: ${result.message || 'Submission failed'}`);
       }
