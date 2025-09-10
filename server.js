@@ -40,14 +40,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // 📝 Enquiry route
 app.post(['/api/enquiry', '/api/enquiry_form'], async (req, res) => {
-  const { full_name, phone, email, BATCH_TIMINGS, course, education, passed_out_year } = req.body;
+  const { full_name, phone, email, batch_timings, course, education, passed_out_year } = req.body;
 
   try {
     const result = await pool.query(
-      `INSERT INTO enquiry_form (full_name, phone, email, BATCH_TIMINGS, course, education, passed_out_year)
+      `INSERT INTO enquiry_form (full_name, phone, email, batch_timings, course, education, passed_out_year)
        VALUES ($1,$2,$3,$4,$5,$6,$7)
        RETURNING id`,
-      [full_name, phone, email, BATCH_TIMINGS, course, education, passed_out_year]
+      [full_name, phone, email, batch_timings, course, education, passed_out_year]
     );
 
     res.status(200).json({ message: 'Enquiry submitted successfully', id: result.rows[0].id });
