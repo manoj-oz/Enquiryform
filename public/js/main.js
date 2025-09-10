@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       full_name: document.getElementById('fullName')?.value || '',
       phone: document.getElementById('phone')?.value || '',
       email: document.getElementById('enquiryEmail')?.value || '',
-      dob: document.getElementById('BATCH TIMINGS')?.value || '',
+      dob: document.getElementById('BATCH_TIMINGS')?.value || '',
       course: document.getElementById('course')?.value || '',
       education: document.getElementById('education')?.value || '',
       passed_out_year: document.getElementById('passedOutYear')?.value || ''
